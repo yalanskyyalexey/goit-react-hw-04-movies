@@ -25,22 +25,23 @@ export default function MovieDetailsPage() {
 
 	return (
 		<div className={s.page}>
-			<h1 className={s.header}>{original_title}</h1>
 			<GoBackBtn />
 			<div className={s.wrapper}>
 				<img className={s.img} src={`${IMG_PATH}/${poster_path}`} alt='' />
 				<div className={s.rightSide}>
+					<h1 className={s.header}>{original_title}</h1>
 					<h2>Rating: {vote_average}</h2>
+					<h3>Overview: </h3>
+					<p className={s.text}>{overview}</p>
 					<div className={s.genres}>
-						<h2>Genres: </h2>
+						<h3>Genres: </h3>
 						{genres &&
 							genres.map(genre => (
-								<h2 key={genre.id} className={s.genresItem}>
+								<p key={genre.id} className={s.genresItem}>
 									{genre.name}
-								</h2>
+								</p>
 							))}
 					</div>
-					<h3>Overview: {overview}</h3>
 				</div>
 			</div>
 			<NavLink

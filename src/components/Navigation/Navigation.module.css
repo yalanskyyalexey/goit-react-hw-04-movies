@@ -1,0 +1,33 @@
+.nav {
+	display: flex;
+	align-items: center;
+	height: 50px;
+	margin-bottom: 15px;
+}
+.link {
+	color: #000;
+	text-decoration: none;
+	padding: 10px;
+}
+
+.activeLink {
+	text-decoration: underline;
+}
+.activeLink::first-letter {
+	font-weight: 700;
+}
+
+.link:first-child {
+	margin-left: 20px;
+}
+
+.link:not(:last-child) {
+	margin-right: 15px;
+}
+
+.link:hover,
+.link:focus {
+	text-decoration: underline;
+
+	outline: none;
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
 import s from './Movies.module.css';
+import { FcSearch } from 'react-icons/fc';
 import { getMovieByQuery } from '../../services/MoviesApi';
 
 export default function Movies() {
@@ -37,12 +38,14 @@ export default function Movies() {
 		<>
 			<header className={s.Searchbar}>
 				<form className={s.SearchForm} onSubmit={handleSubmit}>
-					<button type='submit' className={s.SearchFormButton}>
-						<span className={s.SearchFormButtonLabel}>Search</span>
+					<button type='submit' className={s.SearchForm__button}>
+						<span className={s.SearchForm__button_label}>
+							<FcSearch />
+						</span>
 					</button>
 
 					<input
-						className={s.SearchFormInput}
+						className={s.SearchForm__input}
 						type='text'
 						autoComplete='off'
 						autoFocus

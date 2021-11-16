@@ -1,0 +1,24 @@
+.castList {
+	width: inherit;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	list-style: none;
+}
+
+.castName {
+	font-size: 12px;
+	text-align: center;
+}
+
+.itemWrapper {
+	margin: 0px 10px 10px 0px;
+}
+
+.defaultImg {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 135px;
+	height: 202px;
+}

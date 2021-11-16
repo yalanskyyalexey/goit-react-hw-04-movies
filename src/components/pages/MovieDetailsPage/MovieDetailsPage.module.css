@@ -1,0 +1,61 @@
+.header {
+	font-size: 24px;
+}
+.wrapper {
+	display: flex;
+	min-width: 500px;
+}
+.img {
+	width: 300px;
+	margin-bottom: 30px;
+	margin-right: 15px;
+	display: block;
+	height: auto;
+}
+.rightSide {
+	min-width: 500px;
+}
+
+h2 {
+	font-size: 20px;
+}
+
+.genres {
+	display: flex;
+	align-items: center;
+}
+h3 {
+	font-size: 18px;
+	padding-right: 5px;
+}
+.genresItem {
+	font-size: 18px;
+	padding-right: 5px;
+}
+.text {
+	font-weight: 100;
+}
+.link {
+	width: 150px;
+	height: 40px;
+	margin-bottom: 20px;
+	margin-right: 10px;
+	cursor: pointer;
+	border: none;
+	border-radius: 5px;
+	background-color: #e2e2e2;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-decoration: none;
+}
+.link:hover {
+	background-color: #f08484;
+	color: #fff;
+	box-shadow: 1px 1px 3px 0.2;
+	text-decoration: underline;
+}
+.activeLink {
+	background-color: #f08484;
+	color: #fff;
+}

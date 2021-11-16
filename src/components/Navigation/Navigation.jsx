@@ -6,7 +6,6 @@ export default function Navigation() {
 	return (
 		<nav className={s.nav}>
 			<NavLink
-				style={{ marginRight: '15px' }}
 				exact
 				to={{
 					pathname: '/',

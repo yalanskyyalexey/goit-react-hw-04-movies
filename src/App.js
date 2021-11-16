@@ -1,11 +1,60 @@
 import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import Navigation from './components/Navigation/Navigation';
+import Container from './components/Container/Container';
+import Loader from 'react-loader-spinner';
 
-function App() {
+const HomePage = lazy(() =>
+	import(
+		'./components/pages/HomePage/HomePage' /* webpackChunkName: "HomePage"*/
+	)
+);
+const MovieDetailsPage = lazy(() =>
+	import(
+		'./components/pages/MovieDetailsPage/MovieDetailsPage' /* webpackChunkName: "MovieDetailsPage"*/
+	)
+);
+const Movies = lazy(() =>
+	import('./components/pages/Movies/Movies' /* webpackChunkName: "Movies"*/)
+);
+// const NotFoundPage = lazy(() =>
+// 	import(
+// 		'./components/pages/NotFoundPage/NotFoundPage' /* webpackChunkName: "NotFoundPage"*/
+// 	)
+// );
+
+export default function App() {
 	return (
-		<div className='App'>
-			<h1>hello</h1>
-		</div>
+		<Container>
+			<Navigation />
+			<Suspense
+				fallback={
+					<Loader
+						style={{ textAlign: 'center', marginTop: '15px' }}
+						type='Audio'
+						color='#3f81e4'
+						height={100}
+						width={100}
+						timeout={3000} //3 secs
+					/>
+				}
+			>
+				<Switch>
+					<Route path='/' exact>
+						<HomePage />
+					</Route>
+					<Route path='/movies' exact>
+						<Movies />
+					</Route>
+					<Route path='/movies/:slug'>
+						<MovieDetailsPage />
+					</Route>
+					{/* <Route>
+						<NotFoundPage />
+					</Route> */}
+				</Switch>
+			</Suspense>
+		</Container>
 	);
 }
-
-export default App;

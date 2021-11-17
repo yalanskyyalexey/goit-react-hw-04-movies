@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { NavLink, useRouteMatch, useLocation } from 'react-router-dom';
 
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { useState, useEffect } from 'react';
 import { getMovieDetails } from '../../services/MoviesApi';
@@ -16,7 +16,7 @@ export default function MovieDetailsPage() {
 	const [movie, setMovie] = useState('');
 	const { original_title, poster_path, vote_average, genres, overview } = movie;
 	const IMG_PATH = 'https://image.tmdb.org/t/p/original';
-	const { url, path } = useRouteMatch();
+	const { url, path, isExact } = useRouteMatch();
 	const location = useLocation();
 
 	useEffect(() => {
@@ -49,7 +49,7 @@ export default function MovieDetailsPage() {
 				activeClassName={s.activeLink}
 				to={{
 					pathname: `${url}/cast`,
-					state: { from: location.state.from },
+					state: { ...location.state, id: movieId },
 				}}
 			>
 				Cast
@@ -60,18 +60,21 @@ export default function MovieDetailsPage() {
 				exact
 				to={{
 					pathname: `${url}/reviews`,
-					state: { from: location.state.from },
+					state: { ...location.state },
+					// state: { ...location.state, id: movieId },
 				}}
 			>
 				Reviews
 			</NavLink>
-
-			<Route path={`${path}/cast`}>
-				<Cast />
-			</Route>
-			<Route exact path={`${path}/reviews`}>
-				<Reviews />
-			</Route>
+			<Switch>
+				<Route exact path={`${path}/cast`}>
+					<Cast />
+				</Route>
+				<Route exact path={`${path}/reviews`}>
+					<Reviews />
+				</Route>
+				{!isExact && <Redirect to={'/'} />}
+			</Switch>
 		</div>
 	);
 }

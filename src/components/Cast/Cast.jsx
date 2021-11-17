@@ -4,14 +4,13 @@ import { getCastMovieInfo } from '../../services/MoviesApi';
 import smoothScroll from '../../utils/smoothScroll';
 import s from './Cast.module.css';
 import shortid from 'shortid';
-// import NotFoundActor from '../../images/not-found-actor.png';
 const IMG_PATH = 'https://image.tmdb.org/t/p/original';
 
 export default function Cast() {
 	const [cast, setCast] = useState([]);
 	const { slug } = useParams();
 	const movieId = slug.match(/[a-z0-9]+$/)[0];
-
+	console.log(slug);
 	useEffect(() => {
 		getCastMovieInfo(movieId)
 			.then(data => setCast(data.cast))
@@ -32,12 +31,7 @@ export default function Cast() {
 										width='135'
 									/>
 								) : (
-									<img
-										className={s.defaultImg}
-										// src={NotFoundActor}
-										alt='Not found'
-										width='135'
-									/>
+									<img className={s.defaultImg} alt='Not found' width='135' />
 								)}
 								<li className={s.castName}>{actor.name}</li>
 							</div>

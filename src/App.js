@@ -1,4 +1,3 @@
-import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Navigation from './components/Navigation/Navigation';
@@ -10,9 +9,7 @@ const MovieDetailsPage = lazy(() =>
 	import('./pages/MovieDetailsPage/MovieDetailsPage')
 );
 const Movies = lazy(() => import('./pages/Movies/Movies'));
-// const NotFoundPage = lazy(() =>
-// 	import('./components/pages/NotFoundPage/NotFoundPage')
-// );
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 
 export default function App() {
 	return (
@@ -26,7 +23,7 @@ export default function App() {
 						color='#3f81e4'
 						height={100}
 						width={100}
-						timeout={3000} //3 secs
+						timeout={3000}
 					/>
 				}
 			>
@@ -40,9 +37,9 @@ export default function App() {
 					<Route path='/movies/:slug'>
 						<MovieDetailsPage />
 					</Route>
-					{/* <Route>
+					<Route path='/'>
 						<NotFoundPage />
-					</Route> */}
+					</Route>
 				</Switch>
 			</Suspense>
 		</Container>

@@ -6,9 +6,9 @@ import { Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieDetails } from '../../services/MoviesApi';
 import s from './MovieDetailsPage.module.css';
-import Cast from '../../Cast/Cast';
-import Reviews from '../../Reviews/Reviews';
-import GoBackBtn from '../../GoBackBtn/GoBackBtn';
+import Cast from '../../components/Cast';
+import Reviews from '../../components/Reviews';
+import GoBackBtn from '../../components/GoBackBtn';
 
 export default function MovieDetailsPage() {
 	const { slug } = useParams();

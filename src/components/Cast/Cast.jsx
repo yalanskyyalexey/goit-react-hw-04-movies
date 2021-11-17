@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { getCastMovieInfo } from '../services/MoviesApi';
-import smoothScroll from '../utils/smoothScroll';
+import { getCastMovieInfo } from '../../services/MoviesApi';
+import smoothScroll from '../../utils/smoothScroll';
 import s from './Cast.module.css';
 import shortid from 'shortid';
 // import NotFoundActor from '../../images/not-found-actor.png';
@@ -27,7 +27,7 @@ export default function Cast() {
 							<div className={s.itemWrapper} key={shortid.generate()}>
 								{actor.profile_path ? (
 									<img
-										src={`${IMG_PATH}` + actor.profile_path}
+										src={`${IMG_PATH + actor.profile_path}`}
 										alt={actor.name}
 										width='135'
 									/>
@@ -39,7 +39,6 @@ export default function Cast() {
 										width='135'
 									/>
 								)}
-
 								<li className={s.castName}>{actor.name}</li>
 							</div>
 						))}

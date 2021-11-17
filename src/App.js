@@ -5,11 +5,11 @@ import Navigation from './components/Navigation/Navigation';
 import Container from './components/Container/Container';
 import Loader from 'react-loader-spinner';
 
-const HomePage = lazy(() => import('./components/pages/HomePage/HomePage'));
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const MovieDetailsPage = lazy(() =>
-	import('./components/pages/MovieDetailsPage/MovieDetailsPage')
+	import('./pages/MovieDetailsPage/MovieDetailsPage')
 );
-const Movies = lazy(() => import('./components/pages/Movies/Movies'));
+const Movies = lazy(() => import('./pages/Movies/Movies'));
 // const NotFoundPage = lazy(() =>
 // 	import('./components/pages/NotFoundPage/NotFoundPage')
 // );

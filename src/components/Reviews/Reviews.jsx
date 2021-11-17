@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { getMovieReview } from '../services/MoviesApi';
-import smoothScroll from '../utils/smoothScroll';
+import { getMovieReview } from '../../services/MoviesApi';
+import smoothScroll from '../../utils/smoothScroll';
 
 import s from './Reviews.module.css';
 
